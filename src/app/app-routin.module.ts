@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
+/* This code snippet is defining the routes for the Angular application using the Angular Router
+module. */
 const routes : Routes = [
   { 
     path: '404',
@@ -17,7 +19,11 @@ const routes : Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule {}
