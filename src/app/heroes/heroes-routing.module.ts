@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ListadoComponent } from './pages/listado/listado.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { AgregarComponent } from './pages/agregar/agregar.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: HomeComponent,
     children: [
       {
         path:'listado',
@@ -27,7 +29,7 @@ const routes: Routes = [
         component: BuscarComponent
       },
       {
-        path:'id',
+        path:': id',
         component: HeroeComponent
       },
       {
@@ -42,7 +44,6 @@ const routes: Routes = [
 
   imports: [
     RouterModule.forChild( routes ),
-    CommonModule
   ],
   exports:[
     RouterModule
