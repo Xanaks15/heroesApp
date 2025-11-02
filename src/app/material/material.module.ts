@@ -2,30 +2,30 @@ import { NgModule } from '@angular/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormField } from "@angular/material/form-field";
-import { MatGridListModule } from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from "@angular/material/input";
-import { MatListModule } from '@angular/material/list';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import  {MatToolbarModule } from '@angular/material/toolbar';
-
-
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   exports: [
     MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
-    MatFormField,
+    MatFormFieldModule,
     MatInputModule,
-    MatGridListModule,
     MatIconModule,
-    MatListModule,
-    MatProgressSpinnerModule,
-    MatSidenavModule,
     MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatProgressSpinnerModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {}
