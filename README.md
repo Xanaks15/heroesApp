@@ -158,16 +158,14 @@ json-server --watch mock/db.json --port 3000
 
 ## 🖼️ Capturas (opcional)
 
-Coloca tus imágenes en `assets/screenshots/` y referencia aquí, por ejemplo:
-
 ![Login](assets/screenshots/login.png)
 ![Listado de héroes](assets/screenshots/listado.png)
 
-![1762165828123](image/README/1762165828123.png)
+![1762165828123](image/README/1762165941897.png)
 
 ---
 
-![1762165941897](image/README/1762165941897.png)## 🧯 Solución de problemas
+![1762165941897]()## 🧯 Solución de problemas
 
 - **CORS/puerto**: verifica que JSON‑Server corre en el **3000** y que el `baseUrl` coincide.
 - **`Property 'usuario' does not exist on type '{}'`**: asegúrate de tipar el getter de `AuthService` y usa `auth?.usuario` en la plantilla cuando aplique.
