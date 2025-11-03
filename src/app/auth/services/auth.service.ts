@@ -15,8 +15,8 @@ export class AuthService {
   private baseUrl: string = environment.baseUrl;
   private _auth: Auth | undefined;
 
-  get auth(){
-    return {...this._auth}
+  get auth():Auth{
+    return {...this._auth!}
   }
   constructor( private http:HttpClient,
                private router: Router) { }
