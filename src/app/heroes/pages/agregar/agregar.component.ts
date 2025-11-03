@@ -7,6 +7,12 @@ import { switchMap } from "rxjs/operators";
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
   styles: [
+    `
+      img{
+        width: 100%;
+        border-radius: 5px;
+      }
+    `
   ]
 })
 export class AgregarComponent implements OnInit {
@@ -37,6 +43,9 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit(): void {
 
+    if(!this.router.url.includes('editar')){
+      return;
+    }
     this.activatedRoute.params
     .pipe(
       switchMap( ({id}) => this.heroesService.getHeroePorID(id) )
@@ -54,15 +63,20 @@ export class AgregarComponent implements OnInit {
     if(this.heroe.id){
       //Actualizar
       this.heroesService.actualizarHeroe(this.heroe)
-      .subscribe( heroe => console.log('Actualizando', heroe))
+      .subscribe( heroe => console.log('Actualizando', heroe));
     }else{
       // Crear
       this.heroesService.agregarHeroe(this.heroe)
       .subscribe( heroe =>{
         this.router.navigate(['/heroes/editar', heroe.id ])
-      })
+      });
     }
+  }
 
-
+  borrarHeroe(){
+    this.heroesService.eliminarHeroe( this.heroe.id! )
+    .subscribe( resp =>{
+      this.router.navigate(['/heroes']);
+    });
   }
 }
