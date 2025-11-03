@@ -163,7 +163,7 @@ json-server --watch mock/db.json --port 3000
 
 ---
 
-![1762165941897]()## 🧯 Solución de problemas
+🧯 Solución de problemas
 
 - **CORS/puerto**: verifica que JSON‑Server corre en el **3000** y que el `baseUrl` coincide.
 - **`Property 'usuario' does not exist on type '{}'`**: asegúrate de tipar el getter de `AuthService` y usa `auth?.usuario` en la plantilla cuando aplique.
