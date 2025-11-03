@@ -156,12 +156,10 @@ json-server --watch mock/db.json --port 3000
 | Crear un tag (versión)                      | `git tag -a v1.0 -m "Versión inicial"`      |
 | Subir tags al remoto                         | `git push origin --tags`                     |
 
-## 🖼️ Capturas (opcional)
+## 🖼️ Capturas
+![Listado de héroes](image/README/1762165828123.png)
 
-![Login](assets/screenshots/login.png)
-![Listado de héroes](assets/screenshots/listado.png)
-
-![1762165828123](image/README/1762165941897.png)
+![Busqueda](image/README/1762165941897.png)
 
 ---
 
