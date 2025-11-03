@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Heroe, Publisher } from '../../interfaces/heroes.interface';
 import { HeroesService } from './../../services/heroes.service';
 import { switchMap } from "rxjs/operators";
+import { MatSnackBar, _SnackBarContainer } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
@@ -39,7 +42,9 @@ export class AgregarComponent implements OnInit {
 
   constructor( private heroesService: HeroesService,
                private activatedRoute: ActivatedRoute,
-               private router: Router) { }
+               private router: Router,
+               private snackBar: MatSnackBar,
+               public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -63,20 +68,41 @@ export class AgregarComponent implements OnInit {
     if(this.heroe.id){
       //Actualizar
       this.heroesService.actualizarHeroe(this.heroe)
-      .subscribe( heroe => console.log('Actualizando', heroe));
+      .subscribe( heroe => this.mostrarSnackBar( 'Registro actualizado'));
     }else{
       // Crear
       this.heroesService.agregarHeroe(this.heroe)
       .subscribe( heroe =>{
-        this.router.navigate(['/heroes/editar', heroe.id ])
+        this.router.navigate(['/heroes/editar', heroe.id ]);
+        this.mostrarSnackBar( 'Registro creado');
       });
     }
   }
 
   borrarHeroe(){
-    this.heroesService.eliminarHeroe( this.heroe.id! )
-    .subscribe( resp =>{
-      this.router.navigate(['/heroes']);
+
+    const dialog = this.dialog.open(ConfirmarComponent,{
+      width: '250px',
+      data: this.heroe
+    }); 
+
+    dialog.afterClosed().subscribe(
+      (result) =>{
+        if(result){
+          this.heroesService.eliminarHeroe( this.heroe.id! )
+          .subscribe( resp =>{
+            this.router.navigate(['/heroes']);
+          });
+        }
+      }
+    )
+    
+  }
+
+  mostrarSnackBar( msj: string){
+
+    this.snackBar.open( msj, 'OK!',{
+      duration: 2500
     });
   }
 }
