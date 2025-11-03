@@ -27,11 +27,11 @@ export class BuscarComponent implements OnInit {
 
   opcionSeleccionada(event: MatAutocompleteActivatedEvent){
 
-    if(!event.option.value){
+    if(!event.option?.value){
       this.heroeSeleccionado = undefined;
       return;
     }else{
-      const heroe: Heroe = event.option?.value
+      const heroe: Heroe = event.option.value
     this.termino = heroe.superhero;
 
     this.HeroesService.getHeroePorID(heroe.id!)
